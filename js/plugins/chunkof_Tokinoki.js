@@ -111,14 +111,14 @@
     this._commandWindow.setHandler('newGame',  this.commandNewGame.bind(this));
     this._commandWindow.setHandler('continue', this.commandContinue.bind(this));
     this._commandWindow.setHandler('options',  this.commandOptions.bind(this));
-    this._commandWindow.setHandler('endGame',  this.commandEndGame.bind(this));
+    //this._commandWindow.setHandler('endGame',  this.commandEndGame.bind(this));
     this.addWindow(this._commandWindow);
   };
   Window_TitleCommand.prototype.makeCommandList = function() {
     this.addCommand(TextManager.newGame,   'newGame');
     this.addCommand(TextManager.continue_, 'continue', this.isContinueEnabled());
     this.addCommand(TextManager.options,   'options');
-    this.addCommand(TextManager.gameEnd,   'endGame');
+    //this.addCommand(TextManager.gameEnd,   'endGame');
   };
   // 「おわる」の挙動
   Scene_Title.prototype.commandEndGame = function() {
@@ -133,7 +133,7 @@
   // 見た目の調整
   Window_TitleCommand.prototype.updatePlacement = function() {
     this.x = (Graphics.boxWidth - this.width) / 2;
-    this.y = Graphics.boxHeight - this.height - 40;
+    this.y = Graphics.boxHeight - this.height - 60;
   };
   Window_TitleCommand.prototype.windowWidth = function() {
     return 180;
