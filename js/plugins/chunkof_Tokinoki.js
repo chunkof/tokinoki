@@ -104,36 +104,11 @@
 
 
   //------------------------------
-  //  タイトルメニュー：「おわる」追加
+  //  タイトルメニューの見た目
   //------------------------------
-  Scene_Title.prototype.createCommandWindow = function() {
-    this._commandWindow = new Window_TitleCommand();
-    this._commandWindow.setHandler('newGame',  this.commandNewGame.bind(this));
-    this._commandWindow.setHandler('continue', this.commandContinue.bind(this));
-    this._commandWindow.setHandler('options',  this.commandOptions.bind(this));
-    //this._commandWindow.setHandler('endGame',  this.commandEndGame.bind(this));
-    this.addWindow(this._commandWindow);
-  };
-  Window_TitleCommand.prototype.makeCommandList = function() {
-    this.addCommand(TextManager.newGame,   'newGame');
-    this.addCommand(TextManager.continue_, 'continue', this.isContinueEnabled());
-    this.addCommand(TextManager.options,   'options');
-    //this.addCommand(TextManager.gameEnd,   'endGame');
-  };
-  // 「おわる」の挙動
-  Scene_Title.prototype.commandEndGame = function() {
-    var self = this;
-    setTimeout(function() {
-      self.startFadeOut();
-      setTimeout(function() {
-        document.location = "http://chunkof.net/tokinoki/";
-      }, 1000);
-    }, 200);
-  };
-  // 見た目の調整
   Window_TitleCommand.prototype.updatePlacement = function() {
     this.x = (Graphics.boxWidth - this.width) / 2;
-    this.y = Graphics.boxHeight - this.height - 60;
+    this.y = Graphics.boxHeight - this.height - 36;
   };
   Window_TitleCommand.prototype.windowWidth = function() {
     return 180;
@@ -143,19 +118,24 @@
   };
 
   //------------------------------
-  //  オプションメニュー：未使用項目削除
+  //  オプションメニュー：必要なもののみ。
   //------------------------------
   Window_Options.prototype.addGeneralOptions = function() {
     this.addCommand(TextManager.alwaysDash, 'alwaysDash');
-    //this.addCommand(TextManager.commandRemember, 'commandRemember');
   };
-
   Window_Options.prototype.addVolumeOptions = function() {
     this.addCommand(TextManager.bgmVolume, 'bgmVolume');
-    //this.addCommand(TextManager.bgsVolume, 'bgsVolume');
-    //this.addCommand(TextManager.meVolume, 'meVolume');
     this.addCommand(TextManager.seVolume, 'seVolume');
   };
 
+  //------------------------------
+  // Pre Load
+  //------------------------------
+  TDDP.bootPreloadImages = {
+    picture: [
+      "light",
+      "light2"
+    ]
+  }
 })();
 
