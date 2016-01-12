@@ -2,6 +2,7 @@
 // chunkof_AudioAlert  Audioアラート
 // author:  chunkof (http://chunkof.net/)
 // License: MIT
+// Version: 1.02 : 文言修正：WebAudio -> Web Audio
 // Version: 1.01 : 2回目以降はアラートを表示しない(「タイトルへ戻る」を選択したときなど）
 // Version: 1.00 : 新規作成
 //=============================================================================
@@ -115,11 +116,11 @@ var chunkof_AudioAlert = chunkof_AudioAlert || {};
     var alertWindow = new chunkof_AudioAlert.Window(9);
     var text = "                        ★注意★\n";
     text    += "\n";
-    text    += "     お使いのブラウザはWebAudio非対応です。\n";
+    text    += "     お使いのブラウザはWeb Audio非対応です。\n";
     text    +=  "     このためゲーム中の\\C[14]BGMや効果音が鳴りません。\\C\n";
     text    += "\n";
     text    +=  "     音が鳴らない以外にも不都合が生じる場合があります。\n";
-    text    += "     \\C[23]WebAudio対応ブラウザ\\C[0]をご利用ください。\n";
+    text    += "     \\C[23]Web Audio対応ブラウザ\\C[0]をご利用ください。\n";
     text    += "     \\C[23]（Chrome/FireFox/Safari/Edgeなど）\\C[0]";
     alertWindow.setText(text);
 
