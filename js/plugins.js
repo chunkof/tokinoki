@@ -5,5 +5,6 @@ var $plugins =
 {"name":"DevToolsManage","status":false,"description":"デベロッパツール管理プラグイン","parameters":{"開始時に起動":"OFF","常に前面表示":"OFF","デベロッパツール表示位置":"0,0,800,600"}},
 {"name":"TMLinkCredit","status":true,"description":"タイトルコマンドにリンク機能付きクレジットを追加します。\n利用素材の配布元へユーザーを誘導することが容易になります。","parameters":{"urlFontSize":"16","credit1":"<name:RPGツクールMV><help:開発ツール><url:https://tkool.jp/mv/>","credit2":"<name:TDDP_PreloadManager><help:プラグイン><url:https://github.com/TorD/TDDP-Repo>","credit3":"<name:DevToolsManage><help:プラグイン><url:https://github.com/triacontane/>","credit4":"<name:TMLinkCredit><help:プラグイン><url:http://hikimoki.sakura.ne.jp/>","credit5":"<name:chunkof><help:ゲーム制作><url:http://chunkof.net/>","credit6":"","credit7":"","credit8":"","credit9":"","credit10":"","credit11":"","credit12":"","credit13":"","credit14":"","credit15":"","credit16":"","credit17":"","credit18":"","credit19":"","credit20":"","titleCommandAlign":"1"}},
 {"name":"TDDP_PreloadManager","status":true,"description":"1.1.1 Preload resources on scene/map load as well as game startup for a smoother gameplay experience.          id:TDDP_PreloadManager","parameters":{"Preload On Map Load":"false","Preload System Music":"false","Preload System SFX":"false","Print Debug to Console":"false"}},
-{"name":"chunkof_Tokinoki","status":true,"description":"","parameters":{}}
+{"name":"chunkof_Tokinoki","status":true,"description":"","parameters":{}},
+{"name":"chunkof_AudioAlert","status":true,"description":"WebAudio非対応ブラウザで開かれた場合「警告表示」「音声なしでプレイ続行」を行います。","parameters":{}}
 ];
