@@ -2,7 +2,8 @@
 // chunkof_AudioAlert  Audioアラート
 // author:  chunkof (http://chunkof.net/)
 // License: MIT
-// Version: 1.00
+// Version: 1.01 : 2回目以降はアラートを表示しない(「タイトルへ戻る」を選択したときなど）
+// Version: 1.00 : 新規作成
 //=============================================================================
 /*:
  * @plugindesc In the case of not support Web Audio , to continue without audio and displays an alert.
@@ -32,6 +33,7 @@ var chunkof_AudioAlert = chunkof_AudioAlert || {};
   //-----------------------------------------------------------------------------
   // Audio flag
   chunkof_AudioAlert.supportAudio = true;
+  chunkof_AudioAlert.displayedAlert = false;
 
   //-----------------------------------------------------------------------------
   // AudioManager (Catch audio error)
@@ -131,7 +133,8 @@ var chunkof_AudioAlert = chunkof_AudioAlert || {};
   Scene_Title.prototype.createCommandWindow = function() {
     Scene_Title_createCommandWindow.call(this);
 
-    if (!chunkof_AudioAlert.supportAudio){
+    if (!chunkof_AudioAlert.supportAudio && !chunkof_AudioAlert.displayedAlert){
+      chunkof_AudioAlert.displayedAlert = true;
       this._commandWindow.deactivate();
       this._commandWindow.hide();
       this._alertWindow = chunkof_AudioAlert.createWindow();
