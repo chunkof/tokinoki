@@ -1,15 +1,20 @@
-//=============================================================================
+﻿//=============================================================================
 // chunkof_AudioAlert  Audioアラート
 // author:  chunkof (http://chunkof.net/)
 // License: MIT
-// Version: 1.02 : 文言修正：WebAudio -> Web Audio
-// Version: 1.01 : 2回目以降はアラートを表示しない(「タイトルへ戻る」を選択したときなど）
-// Version: 1.00 : 新規作成
+// Version: 1.1.0 : パラメータ追加：displayAlert 警告文の表示(true/false)
+// Version: 1.0.2 : 文言修正：WebAudio -> Web Audio
+// Version: 1.0.1 : 2回目以降はアラートを表示しない(「タイトルへ戻る」を選択したときなど）
+// Version: 1.0.0 : 新規作成
 //=============================================================================
 /*:
  * @plugindesc In the case of not support Web Audio , to continue without audio and displays an alert.
  *
  * @author chunkof (http://chunkof.net/)
+ *
+ * @param displayAlert
+ * @desc true/false
+ * @default true
  *
  * @help  Default alert message is Japanese .
  * Please overwrite the "chunkof_AudioAlert.createWindow" If you want to change .
@@ -19,6 +24,10 @@
  * @plugindesc WebAudio非対応ブラウザで開かれた場合「警告表示」「音声なしでプレイ続行」を行います。
  *
  * @author chunkof (http://chunkof.net/)
+ * *
+ * @param displayAlert
+ * @desc 警告文の表示(true/false)
+ * @default true
  *
  * @help  「警告表示」の文言を変更したい場合は"chunkof_AudioAlert.createWindow"を上書きしてください。
  *
@@ -30,11 +39,15 @@
 var chunkof_AudioAlert = chunkof_AudioAlert || {};
 
 (function() {
+  //-----------------------------------------------------------------------------
+  // Plugin parameters
+  var params = PluginManager.parameters('chunkof_AudioAlert');
+  var param_displayAlert = Boolean((params['displayAlert'] === 'true') || false);
 
   //-----------------------------------------------------------------------------
   // Audio flag
   chunkof_AudioAlert.supportAudio = true;
-  chunkof_AudioAlert.displayedAlert = false;
+  chunkof_AudioAlert.alreadyDisplayedAlert = false;
 
   //-----------------------------------------------------------------------------
   // AudioManager (Catch audio error)
@@ -134,8 +147,10 @@ var chunkof_AudioAlert = chunkof_AudioAlert || {};
   Scene_Title.prototype.createCommandWindow = function() {
     Scene_Title_createCommandWindow.call(this);
 
-    if (!chunkof_AudioAlert.supportAudio && !chunkof_AudioAlert.displayedAlert){
-      chunkof_AudioAlert.displayedAlert = true;
+    if ( param_displayAlert &&
+        !chunkof_AudioAlert.supportAudio &&
+        !chunkof_AudioAlert.alreadyDisplayedAlert){
+      chunkof_AudioAlert.alreadyDisplayedAlert = true;
       this._commandWindow.deactivate();
       this._commandWindow.hide();
       this._alertWindow = chunkof_AudioAlert.createWindow();

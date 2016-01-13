@@ -1,5 +1,5 @@
 var chunkof_FileHashList = [
-{name:'chunkof_AudioAlert.js',hash:'5b2b1542c1462842'},
+{name:'chunkof_AudioAlert.js',hash:'de7ee12cd8eb36ed'},
 {name:'chunkof_Tokinoki.js',hash:'968f8b28faaa5407'},
 {name:'DevToolsManage.js',hash:'0293a8e5a3640068'},
 {name:'TDDP_PreloadManager.js',hash:'8c4e89200b278cbf'},
@@ -36,7 +36,7 @@ var chunkof_FileHashList = [
 {name:'MapInfos.json',hash:'d937c0e2d5d5b850'},
 {name:'Skills.json',hash:'7a29dee0984a2cde'},
 {name:'States.json',hash:'a6c4c9fd81214b17'},
-{name:'System.json',hash:'add758292e4a90b9'},
+{name:'System.json',hash:'093178e04033a52f'},
 {name:'Tilesets.json',hash:'6fa9096bcae6a712'},
 {name:'Troops.json',hash:'5bb6c7aca1fe8887'},
 {name:'Weapons.json',hash:'ff5ffb5bf1adfc38'},
