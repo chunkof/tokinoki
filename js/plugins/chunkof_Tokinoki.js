@@ -135,7 +135,14 @@
     picture: [
       "light",
       "light2"
+    ],
+    parallax:[
+      "Sunset",
+      "night"
     ]
   }
+  
+  
+  
 })();
 
